@@ -1,8 +1,5 @@
 # Record Fever for COVID-19
+体温を記録しておくwebアプリ
 
-## Todo
-- データの入力を受け付ける
-- ローカルストレージでデータを保存
-- ローカルストレージからのデータ取得
-- データの削除・修正
-- グラフを表示
+## ページリンク
+- https://eycjur.github.io/COVID-19_record_fever/
