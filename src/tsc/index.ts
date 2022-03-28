@@ -1,4 +1,4 @@
-// import Chart from 'chart.js/auto';
+import Chart from "chart.js/auto";
 
 // 時刻と体温を保持する辞書
 interface logs {
@@ -20,16 +20,6 @@ function date2StringInternal(date: Date): string {
   const second: string = pad0(date.getSeconds(), 2);
   return `${year}-${month}-${day}T${hour}:${minute}:${second}`;
 }
-
-// function date2StringDisplay(date: Date): string {
-//   const year: number = date.getFullYear();
-//   const month: string = pad0(date.getMonth() + 1, 2);
-//   const day: string = pad0(date.getDate(), 2);
-//   const hour: string = pad0(date.getHours(), 2);
-//   const minute: string = pad0(date.getMinutes(), 2);
-//   // let second: String = pad0(date.getSeconds(), 2);
-//   return `${year}-${month}-${day} ${hour}:${minute}:${minute}`;
-// }
 
 function readLocalStorage(): logs {
   const logs: logs = JSON.parse(localStorage.getItem("log") || "{}");
@@ -67,9 +57,8 @@ function createTableContent(logs: logs) {
 }
 
 function addDeteleButtonEventListener(): void {
-  const deleteButtons: NodeListOf<Element> = document.querySelectorAll(
-    ".delete-button",
-  );
+  const deleteButtons: NodeListOf<Element> =
+    document.querySelectorAll(".delete-button");
   deleteButtons.forEach((deleteButton: Element) => {
     deleteButton.addEventListener("click", deleteElement);
   });
@@ -111,22 +100,22 @@ function createChart(logs: logs): void {
     return;
   }
 
-  // const chart = new Chart(ctx, {
-  //   type: "line",
-  //   data: {
-  //     labels: Object.keys(logs).map((time: string) => {
-  //       return new Date(time).toLocaleString();
-  //     }),
-  //     datasets: [
-  //       {
-  //         label: "体温",
-  //         data: Object.values(logs),
-  //         backgroundColor: "rgba(255, 99, 132, 0.2)",
-  //         borderColor: "rgba(255, 99, 132, 1)",
-  //         borderWidth: 1,
-  //       },
-  //     ],
-  //   },
+  const chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: Object.keys(logs).map((time: string) => {
+        return new Date(time).toLocaleString();
+      }),
+      datasets: [
+        {
+          label: "体温",
+          data: Object.values(logs),
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
     // options: {
     //   title: {
     //     display: true,
@@ -136,10 +125,7 @@ function createChart(logs: logs): void {
     //     yAxes: [
     //       {
     //         ticks: {
-    //           callback: function (
-    //             value: number,
-    //             index: String,
-    //           ) {
+    //           callback: function (value, index, values) {
     //             console.log(value);
     //             console.log(index);
     //             return value + "度";
@@ -149,7 +135,7 @@ function createChart(logs: logs): void {
     //     ],
     //   },
     // },
-  // });
+  });
 }
 
 function createContents(logs: logs): void {
