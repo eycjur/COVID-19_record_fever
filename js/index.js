@@ -1,4 +1,4 @@
-"use strict";
+import Chart from "chart.js/auto";
 function pad0(num, length) {
     return ("00000000" + String(num)).slice(-length);
 }
@@ -70,6 +70,23 @@ function createChart(logs) {
         console.error("canvas is null");
         return;
     }
+    const chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: Object.keys(logs).map((time) => {
+                return new Date(time).toLocaleString();
+            }),
+            datasets: [
+                {
+                    label: "体温",
+                    data: Object.values(logs),
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 1,
+                },
+            ],
+        },
+    });
 }
 function createContents(logs) {
     createTableContent(logs);
