@@ -4,18 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script type="module" src="./js/index.js"></script>
   <title>Record Fever for COVID-19</title>
+  <style>
+    body{
+      text-align: center;
+    }
+    .table td{
+      vertical-align: middle;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <h1>Record Fever for COVID-19</h1>
-    <form action="#">
+    <form action="#" class="m-3">
       <div class="input">
         <label for="time">時刻</label>
         <input type="datetime-local" id="time" name="time" required>
@@ -25,6 +34,20 @@
         <button id="submit-button">記録</button>
       </div>
     </form>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>時刻</th>
+            <th>体温</th>
+            <th>削除</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </div>
+    <button id="clear-button">all clear</button>
   </div>
 </body>
 
