@@ -7,15 +7,13 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf ./public/js/",
-
-    "tsc": "tsc",
-    "watch": "tsc --watch",
+    "watch": "webpack --watch",
     "serve": "sirv public --port 8080",
     "eslint": "eslint src/** --no-error-on-unmatched-pattern --ext .ts,.tsx",
     "eslint:fix": "eslint --fix src/** --no-error-on-unmatched-pattern --ext .ts,.tsx",
     "test": "jest",
     "cleanwatch": "run-s clean watch",
-    "build": "run-s clean tsc",
+    "build": "webpack",
     "dev": "run-p cleanwatch"
   },
   "devDependencies": {

@@ -100,7 +100,7 @@ function createChart(logs: logs): void {
     return;
   }
 
-  const chart = new Chart(ctx, {
+  const chart = new Chart(ctx, {  // eslint-disable-line
     type: "line",
     data: {
       labels: Object.keys(logs).map((time: string) => {
