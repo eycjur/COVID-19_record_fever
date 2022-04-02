@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="twitter:image" content="static/image/sample.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@eycjur">
+  <meta name="twitter:title" content="Record Fever for COVID-19">
+  <meta name="twitter:description" content="体温を記録しておくwebアプリ">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -38,6 +43,13 @@
     <div class="container">
       <canvas id="canvas"></canvas>
     </div>
+
+    <div class="container m-3">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+        data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
     <div class="container">
       <table class="table">
         <thead>

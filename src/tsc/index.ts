@@ -117,25 +117,14 @@ function createChart(logs: logs): void {
         },
       ],
     },
-    // options: {
-    //   title: {
-    //     display: true,
-    //     text: "体温グラフ",
-    //   },
-    //   scales: {
-    //     yAxes: [
-    //       {
-    //         ticks: {
-    //           callback: function (value, index, values) {
-    //             console.log(value);
-    //             console.log(index);
-    //             return value + "度";
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "体温グラフ",
+        },
+      },
+    },
   });
 }
 
@@ -179,6 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
   submitButton.addEventListener("click", btnClickIndex);
   elemClear.addEventListener("click", function () {
     writeLocalStorage({});
-    createTableContent({});
+    createContents({});
   });
 });
