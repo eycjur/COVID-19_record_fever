@@ -91,16 +91,17 @@ function sortDictionary(KeyValue: logs): logs {
   return sortedKeyValue;
 }
 
+let chart: Chart;
+
 function createChart(logs: logs): void {
   const ctx: HTMLCanvasElement = <HTMLCanvasElement>(
     document.getElementById("canvas")
   );
-  if (ctx === null) {
-    console.error("canvas is null");
-    return;
+  if (chart) {
+    chart.destroy();
   }
 
-  const chart = new Chart(ctx, {  // eslint-disable-line
+  chart = new Chart(ctx, {  // eslint-disable-line
     type: "line",
     data: {
       labels: Object.keys(logs).map((time: string) => {
@@ -116,25 +117,14 @@ function createChart(logs: logs): void {
         },
       ],
     },
-    // options: {
-    //   title: {
-    //     display: true,
-    //     text: "体温グラフ",
-    //   },
-    //   scales: {
-    //     yAxes: [
-    //       {
-    //         ticks: {
-    //           callback: function (value, index, values) {
-    //             console.log(value);
-    //             console.log(index);
-    //             return value + "度";
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "体温グラフ",
+        },
+      },
+    },
   });
 }
 
@@ -178,6 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
   submitButton.addEventListener("click", btnClickIndex);
   elemClear.addEventListener("click", function () {
     writeLocalStorage({});
-    createTableContent({});
+    createContents({});
   });
 });
