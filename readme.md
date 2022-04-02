@@ -3,3 +3,5 @@
 
 ## ページリンク
 - https://eycjur.github.io/COVID-19_record_fever/
+
+![サンプルgif](/fever_sample.gif)

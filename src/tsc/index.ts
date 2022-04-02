@@ -80,7 +80,6 @@ function deleteElement(obj: any = NaN): void {  // eslint-disable-line
 
   writeLocalStorage(feverTime);
   createContents(feverTime);
-  createChart(feverTime);
 }
 
 function sortDictionary(KeyValue: logs): logs {
@@ -168,6 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
   submitButton.addEventListener("click", btnClickIndex);
   elemClear.addEventListener("click", function () {
     writeLocalStorage({});
-    createTableContent({});
+    createContents({});
   });
 });
