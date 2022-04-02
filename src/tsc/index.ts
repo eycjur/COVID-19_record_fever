@@ -91,16 +91,17 @@ function sortDictionary(KeyValue: logs): logs {
   return sortedKeyValue;
 }
 
+let chart: Chart;
+
 function createChart(logs: logs): void {
   const ctx: HTMLCanvasElement = <HTMLCanvasElement>(
     document.getElementById("canvas")
   );
-  if (ctx === null) {
-    console.error("canvas is null");
-    return;
+  if (chart) {
+    chart.destroy();
   }
 
-  const chart = new Chart(ctx, {  // eslint-disable-line
+  chart = new Chart(ctx, {  // eslint-disable-line
     type: "line",
     data: {
       labels: Object.keys(logs).map((time: string) => {
