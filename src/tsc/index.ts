@@ -80,6 +80,7 @@ function deleteElement(obj: any = NaN): void {  // eslint-disable-line
 
   writeLocalStorage(feverTime);
   createContents(feverTime);
+  createChart(feverTime);
 }
 
 function sortDictionary(KeyValue: logs): logs {
@@ -116,25 +117,14 @@ function createChart(logs: logs): void {
         },
       ],
     },
-    // options: {
-    //   title: {
-    //     display: true,
-    //     text: "体温グラフ",
-    //   },
-    //   scales: {
-    //     yAxes: [
-    //       {
-    //         ticks: {
-    //           callback: function (value, index, values) {
-    //             console.log(value);
-    //             console.log(index);
-    //             return value + "度";
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: "体温グラフ",
+        },
+      },
+    },
   });
 }
 
